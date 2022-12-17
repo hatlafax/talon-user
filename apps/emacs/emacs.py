@@ -9,6 +9,7 @@ ctx = Context()
 ctx.matches = r'''
 app: emacs
 app: Emacs
+app: psimacs
 app: Emacs.exe
 app: emacs.exe
 '''

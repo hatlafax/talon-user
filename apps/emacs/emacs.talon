@@ -1,5 +1,6 @@
 app: emacs
 app: Emacs
+app: psimacs
 app: emacs.exe
 app: Emacs.exe
 -
