@@ -9,7 +9,7 @@
 >
 > **cap** *c*
 >
-> **drum** *d*
+> **dog** *d*
 >
 > **each** *e*
 >
@@ -19,25 +19,25 @@
 >
 > **harp** *h*
 >
-> **sit** *i*
+> **ice** *i*
 >
-> **jury** *j*
+> **jane** *j*
 >
-> **crunch** *k*
+> **kiss** *k*
 >
 > **look** *l*
 >
-> **made** *m*
+> **met** *m*
 >
 > **near** *n*
 >
-> **odd** *o*
+> **old** *o*
 >
-> **pit** *p*
+> **pink** *p*
 >
-> **quench** *q*
+> **queen** *q*
 >
-> **red** *r*
+> **ram** *r*
 >
 > **sun** *s*
 >
@@ -47,13 +47,13 @@
 >
 > **vest** *v*
 >
-> **whale** *w*
+> **wet** *w*
 >
 > **plex** *x*
 >
 > **yank** *y*
 >
-> **zip** *z*
+> **zoo** *z*
 >
 
 
@@ -432,6 +432,21 @@
 
 # mac emacs
 
+
+ - **(quit  | cancel)**
+- *key(ctrl-g)*
+
+ - **(reset | rescue)**
+- *key(esc esc esc)*
+
+ - **undo**
+- *key(ctrl-z)*
+
+ - **redo**
+- *key(ctrl-shift-z)*
+
+ - **redo all**
+- *key(super-, ctrl-z)*
 
  - **switch buffer**
 - *key(ctrl-x)*
@@ -5292,6 +5307,12 @@
 - *edit.select_all()*
 - *edit.paste()*
 
+ - **clone that**
+- *edit.selection_clone()*
+
+ - **clone line**
+- *edit.line_clone()*
+
 
 
 #  standard
@@ -5342,6 +5363,11 @@
 
  - **(pad | padding)**
 - *user.insert_between(" ", " ")*
+
+ - **(pad | padding) <user.symbol_key>+**
+- *insert(" ")*
+- *user.insert_many(symbol_key_list)*
+- *insert(" ")*
 
  - **slap**
 - *edit.line_insert_down()*
@@ -5802,10 +5828,12 @@
 
 
  - **phrase <user.text>**
-- *user.insert_with_history(text)*
+- *user.add_phrase_to_history(text)*
+- *insert(text)*
 
  - **phrase <user.text> over**
-- *user.insert_with_history(text)*
+- *user.add_phrase_to_history(text)*
+- *insert(text)*
 
  - **{user.prose_formatter} <user.prose>**
 - *user.insert_formatted(prose, prose_formatter)*
@@ -5823,7 +5851,8 @@
 - *user.formatters_reformat_selection(user.formatters)*
 
  - **word <user.word>**
-- *user.insert_with_history(user.word)*
+- *user.add_phrase_to_history(word)*
+- *insert(word)*
 
  - **recent list**
 - *user.toggle_phrase_history()*
@@ -5832,7 +5861,9 @@
 - *user.phrase_history_hide()*
 
  - **recent repeat <number_small>**
-- *user.insert_with_history(user.get_recent_phrase(number_small))*
+- *recent_phrase = user.get_recent_phrase(number_small)*
+- *user.add_phrase_to_history(recent_phrase)*
+- *insert(recent_phrase)*
 
  - **recent copy <number_small>**
 - *clip.set_text(user.get_recent_phrase(number_small))*
@@ -8745,8 +8776,8 @@
 - *user.select_range(number_1, number_2)*
 - *edit.line_swap_down()*
 
- - **clone (line | that)**
-- *edit.line_clone()*
+ - **clone [line] <number>**
+- *user.line_clone(number)*
 
  - **select camel left**
 - *user.extend_camel_left()*
@@ -8945,6 +8976,9 @@
 
  - **katie root**
 - *user.terminal_change_directory_root()*
+
+ - **katie (up | back)**
+- *user.terminal_change_directory("..")*
 
  - **go <user.system_path>**
 - *insert('cd "{system_path}"\n')*
